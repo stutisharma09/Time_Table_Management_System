@@ -28,7 +28,7 @@ class Student(models.Model):
     Phone_Number = IntegerRangeField(min_value=1000000000,max_value=9999999999)
     Date_of_Birth = models.DateField()
     def __str__(self):
-        return str(self.Student_ID) + " : " + self.First_Name + " " + self.Middle_Name[0] + ". " + self.Last_Name
+        return str(self.Student_ID) + " : " + self.First_Name + " "  + self.Last_Name
 
 class Course(models.Model):
     Name =  models.CharField(max_length=100,primary_key = True)
