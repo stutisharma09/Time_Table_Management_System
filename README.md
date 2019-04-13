@@ -3,4 +3,4 @@
 * __Manpreet Singh Juneja__
 * __Stuti Sharma__
 
-__ *Punjab Engineering College (Deemed to be University)* __
+> *Punjab Engineering College (Deemed to be University)* 
