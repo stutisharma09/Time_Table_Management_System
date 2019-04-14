@@ -9,6 +9,10 @@ class IntegerRangeField(models.BigIntegerField):
         defaults = {'min_value': self.min_value, 'max_value':self.max_value}
         defaults.update(kwargs)
         return super(IntegerRangeField, self).formfield(**defaults)
+class Programme(models.Model):
+    Type =  models.CharField(max_length=4)
+    def __str__(self):
+        return self.Type
 
 class Department(models.Model):
     Name =  models.CharField(max_length=100)
@@ -17,14 +21,17 @@ class Department(models.Model):
         return self.Name
 
 class Student(models.Model):
+    Student_ID = IntegerRangeField(min_value=17101001,max_value=17109200, primary_key = True)
+    Department =  models.ForeignKey(Department, on_delete=models.CASCADE)
+    Programme =   models.ForeignKey(Programme, on_delete=models.CASCADE, default = None)
+    Year = IntegerRangeField(min_value=1,max_value=4,default = 1)
+    Semester = IntegerRangeField(min_value=1,max_value=8,default = 1)
     First_Name =  models.CharField(max_length=30)
     Middle_Name =  models.CharField(max_length=30,null=True,blank=True)
     Last_Name =  models.CharField(max_length=30)
     Address = models.CharField(max_length=30)
     City = models.CharField(max_length=30,default='Chandigarh')
     State = models.CharField(max_length=30,default='Chandigarh')
-    Department =  models.ForeignKey(Department, on_delete=models.CASCADE)
-    Student_ID = IntegerRangeField(min_value=17101001,max_value=17109200, primary_key = True)
     Phone_Number = IntegerRangeField(min_value=1000000000,max_value=9999999999)
     Date_of_Birth = models.DateField()
     def __str__(self):
