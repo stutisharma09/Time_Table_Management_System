@@ -9,10 +9,12 @@ class IntegerRangeField(models.BigIntegerField):
         defaults = {'min_value': self.min_value, 'max_value':self.max_value}
         defaults.update(kwargs)
         return super(IntegerRangeField, self).formfield(**defaults)
+
 class Programme(models.Model):
     Type =  models.CharField(max_length=4)
     def __str__(self):
         return self.Type
+######
 
 class Department(models.Model):
     Name =  models.CharField(max_length=100)
@@ -48,6 +50,8 @@ class Course(models.Model):
 
 
 class Teacher(models.Model):
+    designation_choices = (('Prof.','Professor'),('Dr.','Doctor'),('Ass. Prof.','Associate Professor'))
+    Designation = models.CharField(max_length = 15,choices = designation_choices, default = 'Prof.' )
     Faculty_ID = IntegerRangeField(min_value=1001,max_value=9999, primary_key = True)
     Department =  models.ForeignKey(Department, on_delete=models.CASCADE)
     First_Name =  models.CharField(max_length=30)
@@ -57,7 +61,8 @@ class Teacher(models.Model):
     Phone_Number = IntegerRangeField(min_value=1000000000,max_value=9999999999)
 
     def __str__(self):
-        return "Prof. " + self.First_Name + " "  + self.Last_Name
+        return self.Designation + " " + self.First_Name + " "  + self.Last_Name
+
 class Venue(models.Model):
     type_choices = (('L','Lecture Hall'),('T','Tutorial Room'))
     Type = models.CharField(max_length=1,choices=type_choices,default = 'L')
@@ -65,3 +70,5 @@ class Venue(models.Model):
     Department = models.ForeignKey(Department, on_delete=models.CASCADE,default = None)
     def __str__(self):
         return self.Type + " "  + str(self.Number)
+
+#class Lecture(models.Model)
