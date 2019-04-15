@@ -58,3 +58,10 @@ class Teacher(models.Model):
 
     def __str__(self):
         return "Prof. " + self.First_Name + " "  + self.Last_Name
+class Venue(models.Model):
+    type_choices = (('L','Lecture Hall'),('T','Tutorial Room'))
+    Type = models.CharField(max_length=1,choices=type_choices,default = 'L')
+    Number = IntegerRangeField(min_value=1,max_value=99, primary_key = True)
+    Department = models.ForeignKey(Department, on_delete=models.CASCADE,default = None)
+    def __str__(self):
+        return self.Type + " "  + str(self.Number)
