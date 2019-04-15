@@ -35,12 +35,26 @@ class Student(models.Model):
     Phone_Number = IntegerRangeField(min_value=1000000000,max_value=9999999999)
     Date_of_Birth = models.DateField()
     def __str__(self):
-        return str(self.Student_ID) + " : " + self.First_Name + " "  + self.Last_Name
+        return str(self.Student_ID) #+ " : " + self.First_Name + " "  + self.Last_Name
 
 class Course(models.Model):
     Name =  models.CharField(max_length=100,primary_key = True)
     Department = models.ForeignKey(Department, on_delete=models.CASCADE)
     Course_Number = IntegerRangeField(min_value=101,max_value=999)
+    Semester = IntegerRangeField(min_value=1,max_value=8,default = 1)
     Course_Credits = IntegerRangeField(min_value=1,max_value=4,default=4)
     def __str__(self):
-        return  self.Department.Department_Code + str(self.Course_Number) + " : " + self.Name
+        return  self.Department.Department_Code + str(self.Course_Number) #+ " : " + self.Name
+
+
+class Teacher(models.Model):
+    Faculty_ID = IntegerRangeField(min_value=1001,max_value=9999, primary_key = True)
+    Department =  models.ForeignKey(Department, on_delete=models.CASCADE)
+    First_Name =  models.CharField(max_length=30)
+    Middle_Name =  models.CharField(max_length=30,null=True,blank=True)
+    Last_Name =  models.CharField(max_length=30)
+    Course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    Phone_Number = IntegerRangeField(min_value=1000000000,max_value=9999999999)
+
+    def __str__(self):
+        return "Prof. " + self.First_Name + " "  + self.Last_Name

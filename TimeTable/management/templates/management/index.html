@@ -1,0 +1,6 @@
+<h1>Welcome to the Home Page!</h1><br>
+<ul>
+  {% for course in all_courses %}
+<li> <a href = "/management/course/{{course}}/"> {{course}}: {{course.Name}} </a></li>
+{% endfor %}
+</ul>
