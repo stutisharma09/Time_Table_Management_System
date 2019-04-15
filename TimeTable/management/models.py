@@ -71,4 +71,14 @@ class Venue(models.Model):
     def __str__(self):
         return self.Type + " "  + str(self.Number)
 
-#class Lecture(models.Model)
+class Lecture(models.Model):
+    time_slot_choices = (('1','9:00-10:00'),('2','10:00-11:00'),('3','11:00-12:00'),('4','12:00-1:00'),('5','2:00-3:00'),('6','3:00-4:00'),('7','4:00-5:00'))
+    days_choices = (('1','Monday'),('2','Tuesday'),('3','Wednesday'),('4','Thursday'),('5','Friday'))
+    Time_Slot = models.CharField(max_length=1,choices=time_slot_choices,default = '1')
+    Day = models.CharField(max_length=1,choices=days_choices,default = '1')
+    Course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    Venue = models.ForeignKey(Venue, on_delete=models.CASCADE)
+    Teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.Course) + " : " + self.Course.Name + " : " + str(self.Teacher)
