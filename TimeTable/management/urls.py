@@ -8,5 +8,4 @@ urlpatterns = [
     path('student/<student_id>/', views.student, name='student'),
     path('course/<course_id>/', views.course, name='course')
 
-
 ]
