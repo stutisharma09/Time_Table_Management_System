@@ -1,4 +1,5 @@
-<h1>Welcome to the Home Page!</h1><br>
+<h1>Welcome to the PEC TimeTable Management System!</h1><br>
+<h3>List of Courses</h3>
 <ul>
   {% for course in all_courses %}
 <li> <a href = "/management/course/{{course}}/"> {{course}}: {{course.Name}} </a></li>
