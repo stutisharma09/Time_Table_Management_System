@@ -3,4 +3,6 @@
 * __Manpreet Singh Juneja__
 * __Stuti Sharma__
 
-> *Punjab Engineering College (Deemed to be University)* 
+> *Punjab Engineering College (Deemed to be University)*
+
+![alt text](timetable.png?raw=true "Sample TimeTable")
