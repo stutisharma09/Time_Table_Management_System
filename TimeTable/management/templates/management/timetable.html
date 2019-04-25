@@ -1,7 +1,17 @@
-<h1>Time Table</h1><br>
+<h1>Welcome to the PEC TimeTable Management System!</h1><br>
+<h1>Time Table</h1>
 
 <h2>{{name}}</h2>
 <h4>Student ID : {{student.Student_ID}}</h4>
 <h4>Programme  : {{student.Programme}}</h4>
 <h4>Year       : {{student.Year}}</h4>
 <h4>Branch     : {{student.Department}}</h4>
+
+<ul>
+
+{% for lect in all_lectures %}
+<li><pre>{{lect.get_Day_display}}</pre>{{lect.get_Time_Slot_display}} | {{lect.Course.Name}} | {{lect.Venue}} | {{lect.Teacher.get_Designation_display}} {{lect.Teacher.First_Name}} {{lect.Teacher.Last_Name}}</li>
+
+{% endfor %}
+
+</ul>
