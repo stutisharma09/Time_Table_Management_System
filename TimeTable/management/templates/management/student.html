@@ -1,7 +1,14 @@
-<h1>Welcome to the PEC TimeTable Management System!</h1><br>
+{% extends 'management/base.html' %}
+{% block title%}Student Home{%endblock%}
+{% block body %}
+  <h1>Welcome to the PEC TimeTable Management System!</h1>
 
-<h2>{{name}}</h2>
-<h4>Student ID : {{student.Student_ID}}</h4>
-<h4>Programme  : {{student.Programme}}</h4>
-<h4>Year       : {{student.Year}}</h4>
-<h4>Branch     : {{student.Department}}</h4>
+  <h2>{{name}}</h2>
+  <h4>Student ID : {{student.Student_ID}}</h4>
+  <h4>Programme  : {{student.Programme}}</h4>
+  <h4>Year       : {{student.Year}}</h4>
+  <h4>Branch     : {{student.Department}}</h4>
+  <ul>
+  <h3><a href = "/management/student/{{student.Student_ID}}/timetable">Show TimeTable</a></h3>
+  </ul>
+{% endblock %}

@@ -45,12 +45,18 @@ def studentTimeTable(request,student_id):
     all_lectures = Lecture.objects.all()
     #for c in all_courses:
     #    all_lectures = Lecture.objects.filter(Course = c)
-    all_lectures = all_lectures.order_by('Time_Slot').order_by('Day')
+    all_lectures = all_lectures.order_by('Time_Slot')#.order_by('Day')
+    all_lectures = all_lectures.order_by('Day')
+    Mon_lectures = all_lectures.filter(Day=1)
+    Tue_lectures = all_lectures.filter(Day=2)
+    Wed_lectures = all_lectures.filter(Day=3)
+    Thu_lectures = all_lectures.filter(Day=4)
+    Fri_lectures = all_lectures.filter(Day=5)
     if student.Middle_Name == None:
         name = student.First_Name + " " + student.Last_Name
     else:
         name = student.First_Name + " " + student.Middle_Name + " " + student.Last_Name
-    context = {'all_courses' : all_courses,'student' : student,'name' : name, 'all_lectures' : all_lectures}
+    context = {'all_courses' : all_courses,'student' : student,'name' : name, 'all_lectures' : all_lectures, 'Mon_lectures' : Mon_lectures,'Tue_lectures' : Tue_lectures,'Wed_lectures' : Wed_lectures,'Thu_lectures' : Thu_lectures,'Fri_lectures' : Fri_lectures,}
 
     return render(request,'management/timetable.html',context)
 

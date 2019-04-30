@@ -14,7 +14,7 @@ class Programme(models.Model):
     Type =  models.CharField(max_length=4)
     def __str__(self):
         return self.Type
-######
+
 
 class Department(models.Model):
     Name =  models.CharField(max_length=100)
