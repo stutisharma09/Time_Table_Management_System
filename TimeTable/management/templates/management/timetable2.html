@@ -1,0 +1,141 @@
+{% extends 'management/base.html' %}
+{% block title%}Student TimeTable{%endblock%}
+{% block body %}
+  <h1>Welcome to the PEC TimeTable Management System!</h1>
+
+  <h2>{{name}}</h2>
+  <h4>Student ID : {{student.Student_ID}}</h4>
+  <h4>Programme  : {{student.Programme}}</h4>
+  <h4>Year       : {{student.Year}}</h4>
+  <h4>Branch     : {{student.Department}}</h4>
+
+  <ul>
+  <h3><a href = "/management/student/{{student.Student_ID}}/">Hide TimeTable</a></h3>
+  <h1>Time Table</h1>
+  <h4>Monday</h4>
+
+  <table class="table">
+
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Time Slot</th>
+      <th>Course</th>
+      <th>Venue</th>
+      <th>Taught By</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for lect in all_lectures %}
+      <tr>
+        <td>{{lect.get_Day_display}}</td>
+        <td>{{lect.get_Time_Slot_display}}</td>
+        <td>{{lect.Course.Name}}</td>
+        <td>{{lect.Venue}}</td>
+        <td>{{lect.Teacher.Designation}} {{lect.Teacher.First_Name}} {{lect.Teacher.Last_Name}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+
+  <h4>Tuesday</h4>
+  <table class="table">
+
+  <thead>
+    <tr>
+      <th>Time Slot</th>
+      <th>Course</th>
+      <th>Venue</th>
+      <th>Taught By</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for lect in Tue_lectures %}
+      <tr>
+        <td>{{lect.get_Time_Slot_display}}</td>
+        <td>{{lect.Course.Name}}</td>
+        <td>{{lect.Venue}}</td>
+        <td>{{lect.Teacher.Designation}} {{lect.Teacher.First_Name}} {{lect.Teacher.Last_Name}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+
+  <h4>Wednesday</h4>
+  <table class="table">
+
+  <thead>
+    <tr>
+      <th>Time Slot</th>
+      <th>Course</th>
+      <th>Venue</th>
+      <th>Taught By</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for lect in Wed_lectures %}
+      <tr>
+        <td>{{lect.get_Time_Slot_display}}</td>
+        <td>{{lect.Course.Name}}</td>
+        <td>{{lect.Venue}}</td>
+        <td>{{lect.Teacher.Designation}} {{lect.Teacher.First_Name}} {{lect.Teacher.Last_Name}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+
+  <h4>Thursday</h4>
+  <table class="table">
+
+  <thead>
+    <tr>
+      <th>Time Slot</th>
+      <th>Course</th>
+      <th>Venue</th>
+      <th>Taught By</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for lect in Thu_lectures %}
+      <tr>
+        <td>{{lect.get_Time_Slot_display}}</td>
+        <td>{{lect.Course.Name}}</td>
+        <td>{{lect.Venue}}</td>
+        <td>{{lect.Teacher.Designation}} {{lect.Teacher.First_Name}} {{lect.Teacher.Last_Name}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+
+  <h4>Friday</h4>
+  <table class="table">
+
+  <thead>
+    <tr>
+      <th>Time Slot</th>
+      <th>Course</th>
+      <th>Venue</th>
+      <th>Taught By</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for lect in Fri_lectures %}
+      <tr>
+        <td>{{lect.get_Time_Slot_display}}</td>
+        <td>{{lect.Course.Name}}</td>
+        <td>{{lect.Venue}}</td>
+        <td>{{lect.Teacher.Designation}} {{lect.Teacher.First_Name}} {{lect.Teacher.Last_Name}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+
+
+
+  </ul>
+{% endblock %}
