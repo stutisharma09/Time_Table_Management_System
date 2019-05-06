@@ -58,4 +58,89 @@
   </table>
 
   </ul>
+
+
+
+  <table class="table">
+    <tr>
+    <th> TIME/DAYS
+    </th>
+    <th> 09:00 - 10:00 </th>
+    <th> 10:00 - 11:00 </th>
+    <th> 11:00 - 12:00 </th>
+    <th> 12:00 - 01:00 </th>
+    <th> 01:00 - 02:00 </th>
+    <th> 02:00 - 03:00 </th>
+    <th> 03:00 - 04:00 </th>
+    <th> 04:00 - 05:00 </th>
+
+   </tr>
+
+    <tr>
+    <th> MONDAY </th>
+    <td> {{Mon_lectures.get_Time_Slot}} </td>
+    <td> CS 207 </td>
+    <td> HS 101 </td>
+    <td> HS 101 </td>
+    <td> </td>
+    <td> </td>
+    <td> EE 101</td>
+    <td> EE 101</td>
+    </tr>
+
+    <tr>
+    <th> TUESDAY </th>
+    <td> EE 101</td>
+    <td> EE 101</td>
+    <td> CS 207</td>
+    <td> CS 207</td>
+    <td> HS 101</td>
+    <td> HS 101</td>
+    <td> </td>
+    <td> </td>
+
+    </tr>
+
+
+    <tr>
+    <th> WEDNESDAY </th>
+    <td> </td>
+    <td> </td>
+    <td> GNR 401 </td>
+    <td> GNR 401 </td>
+    <td> GNR 401 </td>
+    <td> CS 215 </td>
+    <td> CS 215 </td>
+    <td> CS 215 </td>
+
+    </tr>
+
+    <tr >
+
+    <th> THURSDAY </th>
+    <td> </td>
+    <td> </td>
+    <td>EE 101 </td>
+    <td>EE 101  </td>
+    <td>CS 207  </td>
+    <td>CS 207 </td>
+    <td>HS 101 </td>
+    <td>HS 101 </td>
+
+    </tr>
+
+    <tr>
+    <th> FRIDAY </th>
+    <td> </td>
+    <td> </td>
+    <td> GNR 401 </td>
+    <td> GNR 401 </td>
+    <td> GNR 401 </td>
+    <td> CS 215 </td>
+    <td> CS 215 </td>
+    <td> CS 215 </td>
+
+    </tr>
+  </table>
+
 {% endblock %}
