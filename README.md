@@ -5,4 +5,6 @@
 
 > *Punjab Engineering College (Deemed to be University)*
 
-![alt text](timetable.png?raw=true "Sample TimeTable")
+
+![alt text](timetable1.png?raw=true "Sample Login")
+![alt text](timetable2.png?raw=true "Sample TimeTable")
