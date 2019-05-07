@@ -3,6 +3,7 @@ from django.http import HttpResponse,Http404
 from django.shortcuts import render
 from .models import Student,Course,Lecture
 #from django.template import loader
+from django.views.generic.edit import CreateView
 
 def index(request):
     #html = '<h1>Welcome to the Home Page!</h1><br>'
@@ -11,6 +12,8 @@ def index(request):
     #template = loader.get_template('management/index.html')
     #context = {'all_courses' : all_courses}
     return render(request,'management/index.html',{'all_courses' : all_courses})
+def logout(request):
+    return render(request,'management/logout.html')
 
 def view_students(request):
     all_studs = Student.objects.all()
@@ -59,6 +62,16 @@ def studentTimeTable(request,student_id):
     context = {'all_courses' : all_courses,'student' : student,'name' : name, 'all_lectures' : all_lectures, 'Mon_lectures' : Mon_lectures,'Tue_lectures' : Tue_lectures,'Wed_lectures' : Wed_lectures,'Thu_lectures' : Thu_lectures,'Fri_lectures' : Fri_lectures,}
 
     return render(request,'management/timetable.html',context)
+
+class StudentCreate(CreateView):
+    model = Student
+    fields = ['Student_ID','Department','Programme','Year','Semester','First_Name','Middle_Name','Last_Name','Address','City','State','Phone_Number','Date_of_Birth']
+
+
+
+
+
+
 
 
 

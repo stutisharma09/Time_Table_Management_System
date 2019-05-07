@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 # Create your models here.
 class IntegerRangeField(models.BigIntegerField):
     def __init__(self, verbose_name=None, name=None, min_value=None, max_value=None, **kwargs):
@@ -36,6 +36,8 @@ class Student(models.Model):
     State = models.CharField(max_length=30,default='Chandigarh')
     Phone_Number = IntegerRangeField(min_value=1000000000,max_value=9999999999)
     Date_of_Birth = models.DateField()
+    def get_absolute_url(self):
+        return reverse('management:student', kwargs = {'student_id: self.Student_ID'})
     def __str__(self):
         return str(self.Student_ID) #+ " : " + self.First_Name + " "  + self.Last_Name
 
